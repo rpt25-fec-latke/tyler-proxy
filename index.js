@@ -6,8 +6,10 @@ const port = 3000;
 
 app.use(express.urlencoded({ extended: true }));
 
-app.get('/', (req, res) => {
+//todo: figure out how to make call to service on port 3001 from here and then manipulate response back to call here with needed data
+app.get('/api', (req, res) => {
   console.log(req);
+  res.send('Hello');
 });
 
 app.listen(port, () => {
