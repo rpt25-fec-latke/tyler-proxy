@@ -13,11 +13,9 @@ app.get('/', (req, res) => {
 
   axios.get(`http://localhost:3001/reviews?id=${gameId}`)
     .then((response) => {
-      console.log(response);
       res.send(response.data);
     })
     .catch((err) => {
-      console.log(err);
       res.status(500).send({ internalServerError: err });
     });
 });
