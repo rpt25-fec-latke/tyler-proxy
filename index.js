@@ -1,23 +1,17 @@
 const express = require('express');
 const app = express();
 const bodyParser = require('body-parser');
+const path = require('path');
 const cors = require('cors');
 const axios = require('axios');
 const port = 3000;
 
-app.use(express.json({ extended: true }));
+app.use(express.static(path.join(__dirname, '/./public')));
+
 app.use(cors());
 
 app.get('/', (req, res) => {
-  const gameId = req.query.id;
-
-  axios.get(`http://localhost:3001/reviews?id=${gameId}`)
-    .then((response) => {
-      res.send(response.data);
-    })
-    .catch((err) => {
-      res.status(500).send({ internalServerError: err });
-    });
+  res.send();
 });
 
 app.listen(port, () => {
